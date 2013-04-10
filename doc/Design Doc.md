@@ -49,7 +49,7 @@
 	>`add`  
 	>`remove`  
 
-	4. **CourseRecentController**  
+4. **CourseRecentController**  
 
 	On the 'My Courses' page, tabbing to 'Recently Viewed' will look up the user's ID then query the `CourseStatus` database to retrieve the courses the user has recently viewed.
 
