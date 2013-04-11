@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  catalog_number: MyString
   title: MyString
   institute: MyString
+  credits: 1
   description: MyText
+  staff: MyString
+  programmes: MyString
+  participant_count: MyString
 
 two:
+  catalog_number: MyString
   title: MyString
   institute: MyString
+  credits: 1
   description: MyText
+  staff: MyString
+  programmes: MyString
+  participant_count: MyString

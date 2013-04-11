@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<h1>View Results</h1>
+<br>
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= course.title %></td>
+  </tr>
+  <br>
+<% end %>
+
+</html>

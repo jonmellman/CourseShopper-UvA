@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<h1>Welcome to CourseShopper!</h1>
+
+<script type="text/javascript">
+function showResults() 
+{
+	var institute = document.getElementById("institute")
+    window.location = "/courses/" + institute.value
+}
+</script>
+
+Institute: 
+<select id="institute">
+	<% courses = Course.select(:institute).uniq.order("institute") %>
+	<% courses.each do |course| %>
+		<option><%= course.institute%></option>
+	<% end %>
+</select>
+
+<br>
+
+<input type="submit" value ="Submit" onclick="showResults()">
+
+</html>
