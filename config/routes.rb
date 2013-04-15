@@ -1,4 +1,6 @@
 CourseShopper::Application.routes.draw do
+  get "course_shopping/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -6,7 +8,12 @@ CourseShopper::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  match '/courses/:institute' => 'courses#show'
+  get '/courses/:institute' => 'courses#show'
+
+  get '/my_courses/' => 'course_shopping#show'
+  get 'shopping/:courseID' => 'course_shopping#toggle_shopping'
+
+  
   #get '/courses/:institute' => 'courses#index'
   
   # Sample of named route:

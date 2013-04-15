@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
 <h1>View Results</h1>
-<br>
-<% @courses.each do |course| %>
-  <tr>
-    <td><%= course.title %></td>
-  </tr>
-  <br>
-<% end %>
 
+<script>
+
+function toggleShopping(id) 
+{	
+  $.get("/shopping/" + id);
+
+}
+</script>
+
+<script type="text/javascript">
+function toggleTaking() 
+{
+	
+
+}
+</script>
+
+
+<div>
+  <h2>You searched: <%= params[:institute]%></h2>
+	<ol>
+      <% @courses.each do |course| %>
+			<li>
+				<details>
+					<summary><%= course.title %></summary>
+					<p>Course code: <%= course.catalog_number %> </p>
+					<p>Institute: <%= course.institute%></p>
+					<p>Credits: <%= course.credits%></p>
+					<p>Description: <%=course.description.html_safe %> </p>
+					<p>Staff: <%= course.staff %> </p>
+					<p>Programme: <%= course.programmes %></p>
+					<p>Participant count: <%= course.participant_count %></p>
+				</details>
+			</li>
+			<!-- <%= check_box_tag(:shopping, :action => "toggle_shopping") %>
+			<%= label_tag(:shopping, "Course I'm Shopping") %> -->
+				<input type="checkbox" value = <%= course.id %> onchange="toggleShopping(id);">Course I'm Shopping
+			
+			<hr>
+			<% end %>
+	</ol>
+</div>
 </html>

@@ -1,0 +1,2 @@
+module CourseShoppingHelper
+end
