@@ -1,0 +1,2 @@
+class MyCoursesController < ApplicationController
+end

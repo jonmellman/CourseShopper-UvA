@@ -10,8 +10,9 @@ CourseShopper::Application.routes.draw do
 
   get '/courses/:institute' => 'courses#show'
 
-  get '/my_courses/' => 'course_shopping#show'
+  get '/my_courses/' => 'my_courses#show'
   get 'shopping/:courseID' => 'course_shopping#toggle_shopping'
+  get 'taking/:courseID' => 'course_taking#toggle_taking'
 
   
   #get '/courses/:institute' => 'courses#index'

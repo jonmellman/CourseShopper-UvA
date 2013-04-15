@@ -9,14 +9,12 @@ function toggleShopping(id)
   $.get("/shopping/" + id);
 
 }
-</script>
 
-<script type="text/javascript">
-function toggleTaking() 
+function toggleTaking(id) 
 {
-	
-
+	  $.get("/taking/" + id);
 }
+
 </script>
 
 
@@ -33,12 +31,13 @@ function toggleTaking()
 					<p>Description: <%=course.description.html_safe %> </p>
 					<p>Staff: <%= course.staff %> </p>
 					<p>Programme: <%= course.programmes %></p>
-					<p>Participant count: <%= course.participant_count %></p>
+					<p>Participant count: <%= course.participant_count.html_safe %></p>
 				</details>
 			</li>
 			<!-- <%= check_box_tag(:shopping, :action => "toggle_shopping") %>
 			<%= label_tag(:shopping, "Course I'm Shopping") %> -->
-				<input type="checkbox" value = <%= course.id %> onchange="toggleShopping(id);">Course I'm Shopping
+				<input type="checkbox" onchange="toggleShopping(<%= course.id %>);">Course I'm Shopping
+				<input type="checkbox" onchange="toggleTaking(<%= course.id %>);">Course I'm Taking
 			
 			<hr>
 			<% end %>
