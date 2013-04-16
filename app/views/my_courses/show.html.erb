@@ -1,1 +1,48 @@
-<h1>DOH</h1>
+<h1>My Courses</h1>
+
+<a href="#shopping">Courses I'm Shopping</a> |
+<a href="#taking">Courses I'm Taking</a>
+	
+
+<p>
+<a name="shopping">Courses I'm Shopping
+<ol>
+    <% @status_shopping.each do |course| %>
+		<li>
+			<details>
+				<summary><%= course.title %></summary>
+				<p>Course code: <%= course.catalog_number %> </p>
+				<p>Institute: <%= course.institute%></p>
+				<p>Credits: <%= course.credits%></p>
+				<p>Description: <%=course.description.html_safe %> </p>
+				<p>Staff: <%= course.staff %> </p>
+				<p>Programme: <%= course.programmes %></p>
+				<p>Participant count: <%= course.participant_count.html_safe %></p>
+			</details>
+		</li>
+		
+		<hr>
+		<% end %>
+</ol>
+</a>
+
+<a name="taking">Courses I'm Taking
+	<ol>
+	    <% @status_taking.each do |course| %>
+			<li>
+				<details>
+					<summary><%= course.title %></summary>
+					<p>Course code: <%= course.catalog_number %> </p>
+					<p>Institute: <%= course.institute%></p>
+					<p>Credits: <%= course.credits%></p>
+					<p>Description: <%=course.description.html_safe %> </p>
+					<p>Staff: <%= course.staff %> </p>
+					<p>Programme: <%= course.programmes %></p>
+					<p>Participant count: <%= course.participant_count.html_safe %></p>
+				</details>
+			</li>
+		
+			<hr>
+			<% end %>
+	</ol>
+</a>
