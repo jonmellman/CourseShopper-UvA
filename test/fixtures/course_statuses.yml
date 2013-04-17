@@ -4,10 +4,12 @@ one:
   course_id: 1
   shopping: false
   taking: false
+  recently_viewed: false
   user_id: 1
 
 two:
   course_id: 1
   shopping: false
   taking: false
+  recently_viewed: false
   user_id: 1

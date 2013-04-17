@@ -1,5 +1,5 @@
 class CourseShoppingController < ApplicationController
-  def toggle_shopping
+  def toggle
     
     courseStatus = CourseStatus.where(:course_id => params[:courseID])
     
