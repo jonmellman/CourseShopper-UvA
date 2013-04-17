@@ -1,8 +1,33 @@
 <!DOCTYPE html>
 <html>
-<h1>View Results</h1>
+<% content_for :heading do %>
+View Results
+<% end %>
+
 
 <script>
+
+$(document).bind('pageinit', function() {
+	var shoppingChecked = false;
+	var takingChecked = false;
+
+	<% unless @course_status.nil? %>
+		<% if @course_status.shopping == true %>
+		shoppingChecked = true;
+		<% end %>
+		
+		<% if @course_status.taking == true %>
+		takingChecked = true;
+		<% end %>
+		
+	<% end %>
+	
+	$("#checkbox-1").prop('checked', shoppingChecked).checkboxradio('refresh');
+	$("#checkbox-2").prop('checked', takingChecked).checkboxradio('refresh');
+
+
+ });
+
 
 function toggleShopping(id) 
 {	
@@ -18,29 +43,25 @@ function toggleTaking(id)
 </script>
 
 
-<div>
-  <h2>You searched: <%= params[:institute]%></h2>
-	<ol>
-      <% @courses.each do |course| %>
-			<li>
-				<details>
-					<summary><%= course.title %></summary>
-					<p>Course code: <%= course.catalog_number %> </p>
-					<p>Institute: <%= course.institute%></p>
-					<p>Credits: <%= course.credits%></p>
-					<p>Description: <%=course.description.html_safe %> </p>
-					<p>Staff: <%= course.staff %> </p>
-					<p>Programme: <%= course.programmes %></p>
-					<p>Participant count: <%= course.participant_count.html_safe %></p>
-				</details>
-			</li>
-			<!-- <%= check_box_tag(:shopping, :action => "toggle_shopping") %>
-			<%= label_tag(:shopping, "Course I'm Shopping") %> -->
-				<input type="checkbox" onchange="toggleShopping(<%= course.id %>);">Course I'm Shopping
-				<input type="checkbox" onchange="toggleTaking(<%= course.id %>);">Course I'm Taking
-			
-			<hr>
-			<% end %>
-	</ol>
+
+
+<h3><%= @course.title %></h3>
+<p>Course code: <%= @course.catalog_number %> </p>
+<p>Institute: <%= @course.institute%></p>
+<p>Credits: <%= @course.credits%></p>
+<p>Description: <%=@course.description.html_safe %> </p>
+<p>Staff: <%= @course.staff %> </p>
+<p>Programme: <%= @course.programmes %></p>
+<p>Participant count: <%= @course.participant_count.html_safe %></p>
+
+<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup" data-type="horizontal">
+		<input type="checkbox" name="checkbox-1" id="checkbox-1" data-mini="true" class="custom" onchange="toggleShopping(<%= @course.id %>);"/>
+		<label for="checkbox-1">Course I'm Shopping</label>
+		<input type="checkbox" name="checkbox-2" id="checkbox-2" data-mini="true" class="custom" onchange="toggleTaking(<%= @course.id %>);"/>
+		<label for="checkbox-2">Course I'm Taking</label>
+    </fieldset>
 </div>
+
+
 </html>

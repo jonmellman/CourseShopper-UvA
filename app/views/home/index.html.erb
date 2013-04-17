@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-<h1>Welcome to CourseShopper!</h1>
+<% content_for :heading do %>
+CourseShopper
+<% end %>
+
 
 <script type="text/javascript">
 function showResults() 
 {
 	var institute = document.getElementById("institute")
-    window.location = "/courses/" + institute.value
+    window.location = "/institutes/" + institute.value
 }
 </script>
 

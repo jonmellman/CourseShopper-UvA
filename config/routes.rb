@@ -8,7 +8,8 @@ CourseShopper::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  get '/courses/:institute' => 'courses#show'
+  get '/courses/:title' => 'courses#show'
+  get '/institutes/:institute' => 'courses#index'
 
   get '/my_courses/' => 'my_courses#show'
   get 'shopping/:courseID' => 'course_shopping#toggle_shopping'

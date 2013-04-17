@@ -1,12 +1,44 @@
 <h1>My Courses</h1>
 
-<a href="#shopping">Courses I'm Shopping</a> |
-<a href="#taking">Courses I'm Taking</a>
+<div data-role="collapsible-set">
+
+	<div data-role="collapsible" data-collapsed="false">
+	<h1>Courses I'm Shopping</h1>
+	
+	<ol data-role="listview" >
+		<% @status_shopping.each do |course| %>
+		<li>
+			Title:<%= course.title %>
+			<br>
+			Institute: <%= course.institute%>
+		</li>
+		<% end %>
+		</ol>
+	</div>
+
+	
+	<div data-role="collapsible">
+	<h3>Courses I'm Taking</h3>
+	
+	<ol data-role="listview">
+		<% @status_taking.each do |course| %>
+		<li>
+			Title:<%= course.title %>
+			<br>
+			Institute: <%= course.institute%>
+		</li>
+
+		<% end %>
+		</ol>
+	</div>
+</div>
 	
 
-<p>
-<a name="shopping">Courses I'm Shopping
-<ol>
+
+<!-- <div data-role="collapsible-set">
+
+	<div data-role="collapsible">
+		<ol>
     <% @status_shopping.each do |course| %>
 		<li>
 			<details>
@@ -19,15 +51,13 @@
 				<p>Programme: <%= course.programmes %></p>
 				<p>Participant count: <%= course.participant_count.html_safe %></p>
 			</details>
-		</li>
-		
+		</li>		
 		<hr>
 		<% end %>
-</ol>
-</a>
+		</ol>
+	</div>
 
-<a name="taking">Courses I'm Taking
-	<ol>
+	<ol data-role="collapsible">
 	    <% @status_taking.each do |course| %>
 			<li>
 				<details>
@@ -45,4 +75,4 @@
 			<hr>
 			<% end %>
 	</ol>
-</a>
+</div> -->
