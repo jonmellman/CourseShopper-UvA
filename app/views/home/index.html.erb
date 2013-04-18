@@ -8,23 +8,26 @@ CourseShopper
 <script type="text/javascript">
 function showResults() 
 {
-	var institute = document.getElementById("institute")
-    window.location = "/institutes/" + institute.value
+	var institute = document.getElementById("institute_selector").value;
+	var keyword = document.getElementById("search-keyword").value;
+	var searchString = ""
+	
+	if (keyword != "") {
+		searchString = "?keyword=" + keyword;
+	}
+	
+  window.location = "/institutes/" + institute + searchString;
 }
 </script>
 
-
-<p>
-Institute: 
-<select id="institute">
+<select id="institute_selector">
 	<% courses = Course.select(:institute).uniq.order("institute") %>
 	<% courses.each do |course| %>
 		<option><%= course.institute%></option>
 	<% end %>
 </select>
 
-<br>
-
+<input type="search" name="search" id="search-keyword" value="" />
 <input type="submit" value ="Submit" onclick="showResults()">
-</p>
+
 </html>

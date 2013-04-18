@@ -1,6 +1,9 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Course.where(:institute => params[:institute])
+    #@courses = Course.where(:institute => params[:institute])
+    @keyword = params[:keyword]
+    
+    @courses = Course.where("institute = '#{params[:institute]}' AND (catalog_number LIKE ? OR title LIKE ? OR description LIKE ? OR staff LIKE ?)", "%#{params[:keyword]}%","%#{params[:keyword]}%","%#{params[:keyword]}%", "%#{params[:keyword]}%")
     
     respond_to do |format|
       format.html # index.html.erb
