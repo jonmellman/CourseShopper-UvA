@@ -18,3 +18,19 @@ CourseShopper enables users to browse the UvA course catalog by various attribut
 * Ruby on Rails (MVC architecture) will be used for server-side framework
 * Users' *Courses I'm Shopping* and *Courses I'm Taking* lists will be stored server-side in an SQLite database
 * CourseShopper will be designed for 760x1280 resolution smartphones, with the help of the Chrome extension Window Resizer
+
+#Deployment Instructions
+
+##clone repo
+`git clone git@github.com:jonmellman/project2.git jonmellman`
+
+##make sure all gems are there
+`cd jonmellman`
+`bundle`
+
+## initialize and seed database
+`rake db:migrate`
+`rake db:seed`
+
+##start server
+`rails s`
