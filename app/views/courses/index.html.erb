@@ -4,6 +4,8 @@
 View Results
 <% end %>
 
+
+
 <ol id="course_list" data-role="listview" data-filter="true">
 	<% @courses.each do |course| %>
 	<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
