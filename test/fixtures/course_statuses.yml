@@ -5,11 +5,11 @@ one:
   shopping: false
   taking: false
   recently_viewed: false
-  user_id: 1
+  session_id: MyString
 
 two:
   course_id: 1
   shopping: false
   taking: false
   recently_viewed: false
-  user_id: 1
+  session_id: MyString
