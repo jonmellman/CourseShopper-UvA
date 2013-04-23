@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <% content_for :heading do %>
 CourseShopper
 <% end %>
@@ -23,13 +21,10 @@ function showResults()
 </script>
 
 <select id="institute_selector">
-	<% courses = Course.select(:institute).uniq.order("institute") %>
-	<% courses.each do |course| %>
+	<% @courses.each do |course| %>
 		<option><%= course.institute%></option>
 	<% end %>
 </select>
 
 <input type="search" name="search" id="search-keyword" placeholder="Search by keyword" />
-<input type="submit" value ="Submit" onclick="showResults()">
-
-</html>
+<input type="submit" value ="Submit" onclick="showResults()" />

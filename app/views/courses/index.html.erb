@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <% content_for :heading do %>
 View Results
 <% end %>
@@ -10,4 +8,4 @@ View Results
 	<% @courses.each do |course| %>
 	<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
 	<% end %>
-</html>
+</ol>

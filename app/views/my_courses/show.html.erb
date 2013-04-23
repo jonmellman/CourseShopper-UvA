@@ -5,10 +5,10 @@
 	<div data-role="collapsible" data-collapsed="false">
 	<h1>Courses I'm Shopping</h1>
 	
-	<ol data-role="listview" >
-		<% @status_shopping.each do |course| %>
-	<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
-		<% end %>
+		<ol data-role="listview" >
+			<% @status_shopping.each do |course| %>
+			<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+			<% end %>
 		</ol>
 	</div>
 
@@ -16,20 +16,20 @@
 	<div data-role="collapsible">
 	<h3>Courses I'm Taking</h3>
 	
-	<ol data-role="listview">
-		<% @status_taking.each do |course| %>
-	<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
-		<% end %>
+		<ol data-role="listview">
+			<% @status_taking.each do |course| %>
+			<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+			<% end %>
 		</ol>
 	</div>
 	
 	<div data-role="collapsible">
 	<h3>Recently Viewed</h3>
 	
-	<ol data-role="listview">
-		<% @status_recently_viewed.each do |course| %>
-	<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
-		<% end %>
+		<ol data-role="listview">
+			<% @status_recently_viewed.each do |course| %>
+			<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+			<% end %>
 		</ol>
 	</div>
 </div>
