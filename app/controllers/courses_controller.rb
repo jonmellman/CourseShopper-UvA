@@ -1,10 +1,11 @@
 class CoursesController < ApplicationController
   def index
-
-    @courses = Course.where(
-    "institute = '#{params[:institute]}' AND 
+    
+    @courses = Course.joins(
+      'INNER JOIN institutes ON courses.institute_id = institutes.id').where(
+      "institutes.name = '#{params[:institute]}' AND
       (catalog_number LIKE ? OR title LIKE ? OR description LIKE ? OR staff LIKE ?)",
-    "%#{params[:keyword]}%","%#{params[:keyword]}%","%#{params[:keyword]}%", "%#{params[:keyword]}%"
+      "%#{params[:keyword]}%","%#{params[:keyword]}%","%#{params[:keyword]}%", "%#{params[:keyword]}%"
     )
 
     respond_to do |format|

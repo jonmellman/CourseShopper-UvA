@@ -1,11 +1,12 @@
 <% content_for :heading do %>
-View Results
+	<%= link_to 'Browse', root_path %>
+	<%= link_to 'My Courses', my_courses_path %>
+	<h1>View Results</h1>
 <% end %>
-
 
 
 <ol id="course_list" data-role="listview" data-filter="true">
 	<% @courses.each do |course| %>
-	<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+	<li><a href="/institutes/<%= params[:institute] %>/courses/<%= course.title %>"><%= course.title %></a></li>
 	<% end %>
 </ol>

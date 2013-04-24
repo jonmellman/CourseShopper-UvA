@@ -1,5 +1,7 @@
 <% content_for :heading do %>
-CourseShopper
+	<%= link_to 'Browse', root_path %>
+	<%= link_to 'My Courses', my_courses_path %>
+	<h1>CourseShopper</h1>
 <% end %>
 
 <h3>Welcome to CourseShopper!</h3>
@@ -21,8 +23,8 @@ function showResults()
 </script>
 
 <select id="institute_selector">
-	<% @courses.each do |course| %>
-		<option><%= course.institute%></option>
+	<% @institutes.each do |institute| %>
+		<option><%= institute.name%></option>
 	<% end %>
 </select>
 

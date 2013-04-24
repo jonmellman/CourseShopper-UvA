@@ -1,7 +1,8 @@
 <% content_for :heading do %>
-View Results
+	<%= link_to 'Back', '/institutes/' + params[:institute] %>
+	<%= link_to 'My Courses', my_courses_path %>
+	<h1><%= @course.title %></h1>
 <% end %>
-
 
 <script>
 
@@ -40,14 +41,13 @@ function toggleTaking(id)
 
 </script>
 
-<h3><%= @course.title %></h3>
-<p>Course code: <%= @course.catalog_number %> </p>
-<p>Institute: <%= @course.institute%></p>
-<p>Credits: <%= @course.credits%></p>
-<p>Description: <%=@course.description.html_safe %> </p>
-<p>Staff: <%= @course.staff %> </p>
-<p>Programme: <%= @course.programmes %></p>
-<p>Participant count: <%= @course.participant_count.html_safe %></p>
+<p>Course code: 			<%= Course.isListed(@course.catalog_number) %> </p>
+<p>Institute: 				<%= params[:institute] %></p>
+<p>Credits: 					<%= Course.isListed(@course.credits) %></p>
+<p>Description: 			<%= Course.isListed(@course.description.html_safe) %> </p>
+<p>Staff: 						<%= Course.isListed(@course.staff) %> </p>
+<p>Programme: 				<%= Course.isListed(@course.programmes) %></p>
+<p>Participant count: <%= Course.isListed(@course.participant_count.html_safe) %></p>
 
 <div data-role="fieldcontain">
  	<fieldset data-role="controlgroup" data-type="horizontal">
@@ -55,5 +55,5 @@ function toggleTaking(id)
 		<label for="checkbox-1">Course I'm Shopping</label>
 		<input type="checkbox" name="checkbox-2" id="checkbox-2" data-mini="true" class="custom" onchange="toggleTaking(<%= @course.id %>);"/>
 		<label for="checkbox-2">Course I'm Taking</label>
-    </fieldset>
+   </fieldset>
 </div>

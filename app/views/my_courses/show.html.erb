@@ -1,4 +1,8 @@
-<h1>My Courses</h1>
+<% content_for :heading do %>
+	<%= link_to 'Browse', root_path %>
+	<%= link_to 'My Courses', my_courses_path %>
+	<h1>My Courses</h1>
+<% end %>
 
 <div data-role="collapsible-set">
 
@@ -6,19 +10,34 @@
 	<h1>Courses I'm Shopping</h1>
 	
 		<ol data-role="listview" >
-			<% @status_shopping.each do |course| %>
-			<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+			<% if @status_shopping.count == 0 %>
+				<li>No courses to display</li>
+			<% else %>
+				<% @status_shopping.each do |course| %>
+					<li>
+						<a href="/institutes/<%= Course.getInstitute(course) %>/courses/<%= course.title %>">
+							<%= course.title %>
+						</a>
+					</li>
+				<% end %>
 			<% end %>
 		</ol>
 	</div>
-
 	
 	<div data-role="collapsible">
 	<h3>Courses I'm Taking</h3>
 	
 		<ol data-role="listview">
-			<% @status_taking.each do |course| %>
-			<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+			<% if @status_taking.count == 0 %>
+				<li>No courses to display</li>
+			<% else %>
+				<% @status_taking.each do |course| %>
+					<li>
+						<a href="/institutes/<%= Course.getInstitute(course) %>/courses/<%= course.title %>">
+							<%= course.title %>
+						</a>
+					</li>
+				<% end %>
 			<% end %>
 		</ol>
 	</div>
@@ -27,8 +46,16 @@
 	<h3>Recently Viewed</h3>
 	
 		<ol data-role="listview">
-			<% @status_recently_viewed.each do |course| %>
-			<li><a href="/courses/<%= course.title %>"><%= course.title %></a></li>
+			<% if @status_recently_viewed.count == 0 %>
+				<li>No courses to display</li>
+			<% else %>
+				<% @status_recently_viewed.each do |course| %>
+					<li>
+						<a href="/institutes/<%= Course.getInstitute(course) %>/courses/<%= course.title %>">
+							<%= course.title %>
+						</a>
+					</li>
+				<% end %>
 			<% end %>
 		</ol>
 	</div>

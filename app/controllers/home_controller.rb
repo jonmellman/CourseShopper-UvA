@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @courses = Course.select(:institute).uniq.order("institute")
+    @institutes = Institute.order("name")
   end
 end

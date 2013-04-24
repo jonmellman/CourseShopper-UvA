@@ -41,10 +41,14 @@ courses.xpath('//courses/course').each_with_index do |l, i|
   description = l.at_xpath('description').text.strip
   participant_count = l.at_xpath('participant_count').text.strip
   
+  #create institute if it doesn't exist, and set instituteID
+  Institute.where(:name => institute).first_or_create()
+  instituteID = Institute.where(:name => institute).first.id
+  
   #create course
   Course.create(:catalog_number    => catalog_number,
                 :title             => title, 
-                :institute         => institute, 
+                :institute_id      => instituteID, 
                 :credits           => credits,
                 :description       => description,
                 :staff             => staff,

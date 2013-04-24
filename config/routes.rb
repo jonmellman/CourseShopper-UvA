@@ -2,6 +2,7 @@ CourseShopper::Application.routes.draw do
 
   get '/courses/:title' => 'courses#show'
   get '/institutes/:institute' => 'courses#index'
+  get 'institutes/:institute/courses/:title' => 'courses#show'
 
   get '/my_courses/' => 'my_courses#show'
   get 'shopping/:courseID' => 'courses#toggleShopping'
