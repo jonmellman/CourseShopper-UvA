@@ -23,12 +23,12 @@ class CoursesController < ApplicationController
     
     #add to recently viewed
     courseStatus = CourseStatus.where(:course_id => @course.id, :session_id => session_id)
-
+    
     if courseStatus.exists? #if the record exists, update recently_viewed
       courseStatus = courseStatus.first
       if courseStatus.recently_viewed == true
         courseStatus.recently_viewed = false
-        courseStatus.save
+        courseStatus.save #save it as false so when we save it as true, updated_at gets changed in the DB
       end
       courseStatus.recently_viewed = true
       courseStatus.save
@@ -56,6 +56,7 @@ class CoursesController < ApplicationController
       CourseStatus.create(:course_id => params[:courseID], :shopping => true, :session_id => session_id)
     end
     
+    flash.now[:notice] = "Course added to shopping list"
     render :nothing => true
   end
   

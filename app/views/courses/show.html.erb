@@ -1,7 +1,6 @@
 <% content_for :heading do %>
-	<%= link_to 'Back', '/institutes/' + params[:institute] %>
+	<%= link_to 'Back', :back %>
 	<%= link_to 'My Courses', my_courses_path %>
-	<h1><%= @course.title %></h1>
 <% end %>
 
 <script>
@@ -10,28 +9,24 @@ $(document).bind('pageinit', function() {
 	var shoppingChecked = false;
 	var takingChecked = false;
 
+	//'check' the checkbox if the course is already on the list
 	<% unless @course_status.nil? %>
 		<% if @course_status.shopping == true %>
-		shoppingChecked = true;
+			shoppingChecked = true;
 		<% end %>
 		
 		<% if @course_status.taking == true %>
-		takingChecked = true;
+			takingChecked = true;
 		<% end %>
-		
 	<% end %>
-	
+
 	$("#checkbox-1").prop('checked', shoppingChecked).checkboxradio('refresh');
 	$("#checkbox-2").prop('checked', takingChecked).checkboxradio('refresh');
-
-
  });
-
 
 function toggleShopping(id) 
 {	
   $.get("/shopping/" + id);
-
 }
 
 function toggleTaking(id) 
@@ -41,6 +36,7 @@ function toggleTaking(id)
 
 </script>
 
+<p><b><%= Course.isListed(@course.title)%></b></p>
 <p>Course code: 			<%= Course.isListed(@course.catalog_number) %> </p>
 <p>Institute: 				<%= params[:institute] %></p>
 <p>Credits: 					<%= Course.isListed(@course.credits) %></p>
@@ -53,6 +49,7 @@ function toggleTaking(id)
  	<fieldset data-role="controlgroup" data-type="horizontal">
 		<input type="checkbox" name="checkbox-1" id="checkbox-1" data-mini="true" class="custom" onchange="toggleShopping(<%= @course.id %>);"/>
 		<label for="checkbox-1">Course I'm Shopping</label>
+		
 		<input type="checkbox" name="checkbox-2" id="checkbox-2" data-mini="true" class="custom" onchange="toggleTaking(<%= @course.id %>);"/>
 		<label for="checkbox-2">Course I'm Taking</label>
    </fieldset>
