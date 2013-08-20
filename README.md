@@ -1,7 +1,7 @@
 # CourseShopper
 
 ## Description
-CourseShopper enables users to browse the UvA course catalog by various attributes and view complete course descriptions - it also keeps track of 'saved' courses and recently viewed courses. 
+CourseShopper enables users to browse the UvA (Universiteit van Amsterdam) course catalog by various attributes and view complete course descriptions - it also keeps track of 'saved' courses and recently viewed courses. 
 
 ## Features
 
